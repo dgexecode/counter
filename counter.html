@@ -1,0 +1,29 @@
+<div class="elementor-widget-container">
+    <div data-evergreen-interval="540" class="elementor-countdown-wrapper" data-date="">
+        <div class="elementor-countdown-item">
+            <span id="minutes" class="elementor-countdown-digits elementor-countdown-minutes">08</span> 
+            <span class="elementor-countdown-label">Minutos</span>
+        </div>
+        <div class="elementor-countdown-item">
+            <span id="seconds" class="elementor-countdown-digits elementor-countdown-seconds">32</span> 
+            <span class="elementor-countdown-label">Segundos</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function startCountdown(duration) {
+        let timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = Math.floor(timer / 60);
+            seconds = timer % 60;
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+    
+    startCountdown(540); // Define um tempo inicial de 9 minutos (540 segundos)
+</script>
